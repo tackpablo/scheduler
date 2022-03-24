@@ -14,9 +14,17 @@ export default function Application() {
   });
 
   const appointments = getAppointmentsForDay(state, state.day);
-  console.log(appointments);
+  // console.log(appointments);
   const schedule = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
+
+    return (
+      <Appointment
+        key={appointment.id}
+        {...appointment}
+        interview={interview}
+      />
+    );
   });
 
   const setDay = (day) => setState({ ...state, day });
@@ -35,6 +43,8 @@ export default function Application() {
       }));
     });
   }, []);
+
+  console.log(state.interviewers);
 
   return (
     <main className="layout">
@@ -55,9 +65,7 @@ export default function Application() {
         />
       </section>
       <section className="schedule">
-        {appointments.map((appointment) => {
-          return <Appointment key={appointment.id} {...appointment} />;
-        })}
+        {schedule}
         <Appointment key="last" time="5pm" />
       </section>
     </main>
