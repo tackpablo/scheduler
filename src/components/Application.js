@@ -14,7 +14,6 @@ export default function Application() {
   });
 
   const appointments = getAppointmentsForDay(state, state.day);
-  // console.log(appointments);
   const schedule = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
 
@@ -43,8 +42,6 @@ export default function Application() {
       }));
     });
   }, []);
-
-  console.log(state.interviewers);
 
   return (
     <main className="layout">
