@@ -23,7 +23,6 @@ export default function Application() {
     const interview = getInterview(state, appointment.interview);
 
     function bookInterview(id, interview) {
-      console.log(id, interview);
       const appointment = {
         ...state.appointments[id],
         interview: { ...interview },
@@ -44,6 +43,12 @@ export default function Application() {
       });
     }
 
+    function cancelInterview(id) {
+      return axios.delete(`/api/appointments/${id}`).then((res) => {
+        setState((prev) => ({ ...prev }));
+      });
+    }
+
     return (
       <Appointment
         key={appointment.id}
@@ -51,6 +56,7 @@ export default function Application() {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     );
   });
