@@ -27,7 +27,7 @@ function useApplicationData() {
       appointments,
     });
 
-    // console.log(state.days);
+    // console.log("STATE.DAYS: ", state.days);
     // console.log("DAY: ", state.day);
     // console.log("STATE: ", state);
 
@@ -102,7 +102,7 @@ function useApplicationData() {
         return { ...day };
       });
 
-      console.log("DAYS: ", days);
+      // console.log("DAYS: ", days);
 
       function findDay(day) {
         const daysOfWeek = {
