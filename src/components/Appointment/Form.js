@@ -19,6 +19,12 @@ export default function Form(props) {
     onCancel();
   };
 
+  function save(student, interviewer) {
+    if (student && interviewer) {
+      onSave(student, interviewer);
+    }
+  }
+
   // console.log("student: ", student);
   // console.log("interviewer: ", interviewer);
   return (
@@ -48,7 +54,7 @@ export default function Form(props) {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={() => onSave(student, interviewer)}>
+          <Button confirm onClick={() => save(student, interviewer)}>
             Save
           </Button>
         </section>
