@@ -10,13 +10,16 @@ function reducer(state, action) {
 
   switch (action.type) {
     case SET_DAY:
+      // const { day } = action;
       return { ...state, day };
     case SET_APPLICATION_DATA:
+      // const { days, appointments, interviewers } = action;
       return { ...state, days, appointments, interviewers };
     case SET_INTERVIEW: {
+      // console.log("ACTION: ", action);
       const appointment = {
         ...state.appointments[id],
-        interview: { ...interview },
+        interview: interview ? { ...interview } : null,
       };
 
       const appointments = {
@@ -251,6 +254,30 @@ function useApplicationData() {
         interviewers: all[2].data,
       });
     });
+  }, []);
+
+  useEffect(() => {
+    const webSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+
+    webSocket.onopen = function (event) {
+      webSocket.onmessage = function (event) {
+        // console.log("Message Received: ", event.data);
+
+        const data = JSON.parse(event.data);
+        // console.log("DATA: ", data);
+
+        if (data.type === "SET_INTERVIEW") {
+          dispatch({
+            type: SET_INTERVIEW,
+            interview: data.interview,
+            id: data.id,
+          });
+        }
+      };
+    };
+    return () => {
+      webSocket.close();
+    };
   }, []);
 
   return { setDay, bookInterview, cancelInterview, state };
