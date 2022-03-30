@@ -1,87 +1,93 @@
 import { useEffect, useReducer } from "react";
 import axios from "axios";
 
-const SET_DAY = "SET_DAY";
-const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
-const SET_INTERVIEW = "SET_INTERVIEW";
+import reducer, {
+  SET_DAY,
+  SET_APPLICATION_DATA,
+  SET_INTERVIEW,
+} from "reducers/application";
 
-function reducer(state, action) {
-  const { day, days, appointments, interviewers, id, interview } = action;
+// const SET_DAY = "SET_DAY";
+// const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
+// const SET_INTERVIEW = "SET_INTERVIEW";
 
-  switch (action.type) {
-    case SET_DAY:
-      // const { day } = action;
-      return { ...state, day };
-    case SET_APPLICATION_DATA:
-      // const { days, appointments, interviewers } = action;
-      return { ...state, days, appointments, interviewers };
-    case SET_INTERVIEW: {
-      // console.log("ACTION: ", action);
-      const appointment = {
-        ...state.appointments[id],
-        interview: interview ? { ...interview } : null,
-      };
+// function reducer(state, action) {
+//   const { day, days, appointments, interviewers, id, interview } = action;
 
-      const appointments = {
-        ...state.appointments,
-        [id]: appointment,
-      };
+//   switch (action.type) {
+//     case SET_DAY:
+//       // const { day } = action;
+//       return { ...state, day };
+//     case SET_APPLICATION_DATA:
+//       // const { days, appointments, interviewers } = action;
+//       return { ...state, days, appointments, interviewers };
+//     case SET_INTERVIEW: {
+//       // console.log("ACTION: ", action);
+//       const appointment = {
+//         ...state.appointments[id],
+//         interview: interview ? { ...interview } : null,
+//       };
 
-      function updateSpots(state, appointments) {
-        // make copy of days array
-        const days = state.days.map((day) => {
-          return { ...day };
-        });
+//       const appointments = {
+//         ...state.appointments,
+//         [id]: appointment,
+//       };
 
-        // console.log("DAYS: ", days);
+//       function updateSpots(state, appointments) {
+//         // make copy of days array
+//         const days = state.days.map((day) => {
+//           return { ...day };
+//         });
 
-        function findDay(day) {
-          const daysOfWeek = {
-            Monday: 0,
-            Tuesday: 1,
-            Wednesday: 2,
-            Thursday: 3,
-            Friday: 4,
-          };
-          return daysOfWeek[day];
-        }
-        // find the day's index in days array
-        const dayIndex = findDay(state.day);
-        // console.log("STATE.DAY: ", state.day);
-        // console.log("DAYINDEX: ", dayIndex);
+//         // console.log("DAYS: ", days);
 
-        // check for old state
-        const prevState = state.appointments[id].interview;
-        // console.log("prevSTATE: ", prevState);
-        // check for new state
-        const newState = appointments[id].interview;
-        // console.log("newSTATE: ", newState);
+//         function findDay(day) {
+//           const daysOfWeek = {
+//             Monday: 0,
+//             Tuesday: 1,
+//             Wednesday: 2,
+//             Thursday: 3,
+//             Friday: 4,
+//           };
+//           return daysOfWeek[day];
+//         }
+//         // find the day's index in days array
+//         const dayIndex = findDay(state.day);
+//         // console.log("STATE.DAY: ", state.day);
+//         // console.log("DAYINDEX: ", dayIndex);
 
-        // create - no old state + new state
-        if (!prevState && newState) {
-          days[dayIndex].spots--;
-        }
-        // delete - old state + no new state
-        if (prevState && !newState) {
-          days[dayIndex].spots++;
-        }
+//         // check for old state
+//         const prevState = state.appointments[id].interview;
+//         // console.log("prevSTATE: ", prevState);
+//         // check for new state
+//         const newState = appointments[id].interview;
+//         // console.log("newSTATE: ", newState);
 
-        // return days array
-        return days;
-      }
+//         // create - no old state + new state
+//         if (!prevState && newState) {
+//           days[dayIndex].spots--;
+//         }
+//         // delete - old state + no new state
+//         if (prevState && !newState) {
+//           days[dayIndex].spots++;
+//         }
 
-      const days = updateSpots(state, appointments, id);
+//         // return days array
+//         return days;
+//       }
 
-      return { ...state, appointments, days };
-    }
-    default:
-      throw new Error(
-        `Tried to reduce with unsupported action type: ${action.type}`
-      );
-  }
-}
+//       const days = updateSpots(state, appointments, id);
 
-function useApplicationData() {
+//       return { ...state, appointments, days };
+//     }
+//     default:
+//       throw new Error(
+//         `Tried to reduce with unsupported action type: ${action.type}`
+//       );
+//   }
+// }
+
+export function useApplicationData() {
   // const [state, setState] = useState({
   //   day: "Monday",
   //   days: [],
