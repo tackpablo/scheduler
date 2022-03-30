@@ -1,70 +1,66 @@
 # Interview Scheduler
 
-Smartodo is a full stack todo list application that is able to categorize added tasks. It was made using EJS, sass, JS, jQuery/AJAX, Axios, Node.js and postgreSQL. External APIs used were: Advanced Movie Search API, HAPI Books API and the Edamam Food and Grocery Database API. Midterm project for Lighthouse Labs Web Development Bootcamp
+The Interview Scheduler is a React Application that allows anyone to book/edit/cancel/delete interviews. It was made using React, Axios, Node.js, Storybook, Cypress, Jest, and postgreSQL. External API used in the project can be found here: [scheduler-api](https://github.com/tackpablo/scheduler-api).
 
 # How to use Interview Scheduler and Features
 
 - Minimalistic design
-- MPA utilizing AJAX requests to prevent page refreshes when possible
-- Navigation bar to navigate between landing page, login/register page, and task list page.
-- Functional login and registration
-- Error handling for empty inputs as well
-- Responsive design that supports different screen sizes
-- Protected against simple XSS injection for safe use
-- Ability to add tasks, which gets sorted via sorting algorithm to correct category (4 total categories)
-- Task categories are editable
-- Tasks can be deleted
-- Main task list page has dynamic message based on time and displays user first name
+- Choose available time slots to book interviews
+  - Provide your name and choose an interviewer
+- Edit and delete inteview slots as required
+- All actions have a confirmation to prevent accidental creation/editing/deleting of interviews
+- Number of available interview spots per day easily accessible
+- Interview slots available Monday to Friday
 
 # Final Product
 
 ### Desktop View
 
-!["Desktop View"]()
+!["Desktop View"](https://github.com/tackpablo/scheduler/blob/master/public/images/README%20Images/Desktop%20View.png)
 
 ### Mobile View
 
-!["Mobile View"]()
+!["Mobile View"](https://github.com/tackpablo/scheduler/blob/master/public/images/README%20Images/Mobile%20View.png)
 
 # Features
 
 ### Adding New Interviews
 
-!["Adding New Interviews"]()
+!["Adding New Interviews"](https://github.com/tackpablo/scheduler/blob/master/public/images/README%20Images/New%20Interview.gif)
 
 ### Editing Interviews
 
-!["Editing Interviews"]()
+!["Editing Interviews"](https://github.com/tackpablo/scheduler/blob/master/public/images/README%20Images/Editing%20Interview.gif)
 
 ### Deleting Interviews
 
-!["Deleting Interviews"]()
+!["Deleting Interviews"](https://github.com/tackpablo/scheduler/blob/master/public/images/README%20Images/Deleting%20Interview.gif)
 
-### Cancelling
+### Cancelling of Actions
 
-!["Cancelling"]()
+!["Cancelling of Actions"](https://github.com/tackpablo/scheduler/blob/master/public/images/README%20Images/Cancelling.gif)
 
 ### Switching Between Days
 
-!["Switching Between Days"]()
+!["Switching Between Days"](https://github.com/tackpablo/scheduler/blob/master/public/images/README%20Images/Switch%20Days.gif)
 
 ### Websocket Connection
 
-!["Websocket Connection"]()
+!["Websocket Connection"](https://github.com/tackpablo/scheduler/blob/master/public/images/README%20Images/Websocket.gif)
 
 # Errors
 
 ### New Interview Error
 
-!["New Interview Error"]()
+!["New Interview Error"](https://github.com/tackpablo/scheduler/blob/master/public/images/README%20Images/New%20Interview%20Error.gif)
 
 ### Deleting Error
 
-!["Deleting Error"]()
+!["Deleting Error"](https://github.com/tackpablo/scheduler/blob/master/public/images/README%20Images/Deleting%20Error.gif)
 
 # Getting Started
 
-1. Clone this repo in addition to the scheduler-api(https://github.com/tackpablo/scheduler-api) repository
+1. Clone this repo in addition to the [scheduler-api](https://github.com/tackpablo/scheduler-api) repository
 2. Install dependencies with `npm install` on both client and server.
 3. Run both client and server:
    - Running Webpack Development Server: `npm start`
