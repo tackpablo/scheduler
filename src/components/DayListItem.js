@@ -1,10 +1,10 @@
 import React from "react";
 import classNames from "classnames";
-
 import "components/DayListItem.scss";
 
 export default function DayListItem(props) {
   const { spots, selected, name, setDay } = props;
+
   const formatSpots = function () {
     if (spots === 0) {
       return <h3 className="text--light">no spots remaining</h3>;

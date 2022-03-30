@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
 import InterviewerList from "../InterviewerList";
 import Button from "../Button";
 
 export default function Form(props) {
   const { interviewers, onSave, onCancel } = props;
+
   const [error, setError] = useState("");
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
@@ -29,8 +29,6 @@ export default function Form(props) {
     onSave(student, interviewer);
   }
 
-  // console.log("student: ", student);
-  // console.log("interviewer: ", interviewer);
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">

@@ -1,3 +1,5 @@
+// End to end testing of Appointment Component
+
 describe("should book an interview", () => {
   beforeEach(() => {
     cy.request("GET", "/api/debug/reset");

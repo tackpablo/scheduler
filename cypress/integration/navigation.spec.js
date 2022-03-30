@@ -1,3 +1,5 @@
+// End to end testing to see if navigation of web app works
+
 describe("Navigation", () => {
   it("should visit root", () => {
     cy.visit("/");
