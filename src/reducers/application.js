@@ -4,8 +4,6 @@ export const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 export const SET_INTERVIEW = "SET_INTERVIEW";
 
 export default function reducer(state, action) {
-  const { day, days, appointments, interviewers, id, interview } = action;
-
   switch (action.type) {
     case SET_DAY:
       const { day } = action;
