@@ -11,6 +11,8 @@ The Interview Scheduler is a React Application that allows anyone to book/edit/c
 - All actions have a confirmation to prevent accidental creation/editing/deleting of interviews
 - Number of available interview spots per day easily accessible
 - Interview slots available Monday to Friday
+- Websocket server used to emulate real time experience
+- Automated deployment using CircleCI(CI/CD), API Server hosting on Heroku, and Application deployed on Netlify
 
 # Live Demo
 
