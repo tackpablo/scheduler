@@ -14,7 +14,7 @@ The Interview Scheduler is a React Application that allows anyone to book/edit/c
 
 # Live Demo
 
-Please visit my app [here](tackpablo-scheduler.netlify.app).
+Please visit my app [here](https://tackpablo-scheduler.netlify.app/).
 
 # Final Product
 
