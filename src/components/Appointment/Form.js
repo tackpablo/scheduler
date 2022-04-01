@@ -20,7 +20,7 @@ export default function Form(props) {
   };
 
   function validate() {
-    if (student === "") {
+    if (student === "" || !interviewer) {
       setError("Student name cannot be blank");
       return;
     }
